@@ -1,0 +1,47 @@
+package naomijub;
+
+import java.awt.EventQueue;
+import java.awt.Graphics;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+import javax.swing.JFrame;
+
+public class Program extends JFrame{
+
+	private Graphics g;
+	
+	public Program(){
+		initUI();
+		
+		//Exit Listener
+  		addWindowListener(new WindowAdapter() {
+  			public void windowClosed(WindowEvent e) {
+  				System.exit(0);
+  			}
+  		});
+
+	}
+	
+	public void paintComponent(Graphics g) {
+		super.paintComponents(g);
+		this.g = g;
+		
+	}
+	
+	public void initUI(){
+		Game game1 = new Game(this, g);
+		
+	}
+	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {		 
+			public void run() {
+				Program ex = new Program();
+				ex.setVisible(true);
+            }
+        });
+
+	}
+
+}

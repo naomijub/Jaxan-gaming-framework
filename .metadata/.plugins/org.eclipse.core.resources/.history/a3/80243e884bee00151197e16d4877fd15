@@ -1,0 +1,56 @@
+package naomijub;
+
+import java.awt.Graphics;
+
+import javax.swing.JFrame;
+import javax.swing.Timer;
+;
+
+public abstract class Engine {
+	protected JFrame frame;
+	protected int x, y;
+	protected Timer timer;
+	
+	public Engine(JFrame frame){
+		this.frame = frame;
+		this.x = 1080;
+		this.y = 720;
+		this.frame.setVisible(true);
+		this.frame.setSize(1080, 720);
+		this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+	}
+	
+	
+	protected java.awt.Graphics2D Graphics2D(Graphics g){
+		java.awt.Graphics2D g2d = (java.awt.Graphics2D) g;
+		return g2d;
+	}
+	
+	protected void setWidth(int x){
+		this.x = x;
+		this.frame.setSize(x, y);
+	}
+	
+	protected void setHeight(int y){
+		this.y = y;
+		this.frame.setSize(x, y);
+	}
+	
+	protected void setTitle(String str){
+		this.frame.setTitle(str);
+	}
+	
+	protected JFrame getFrame(){
+		return frame;
+	}
+	
+	public abstract void Initialize();
+	public abstract void LoadCOntent();
+	public abstract void Update();
+	public abstract void Draw(Graphics g);
+	public abstract void UnloadCOntent();
+
+	
+	
+}
